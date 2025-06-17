@@ -256,7 +256,8 @@ public class MainActivity extends AppCompatActivity implements
         };
 
         registerReceiver(mPermissionReceiver, new IntentFilter(
-                ACTION_USB_PERMISSION));
+                ACTION_USB_PERMISSION),
+                Context.RECEIVER_NOT_EXPORTED);
 
         bindService(new Intent(this, ControllerService.class), this,
                 Context.BIND_IMPORTANT);
@@ -436,7 +437,7 @@ public class MainActivity extends AppCompatActivity implements
 
     private void showNoDongle() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this,
-                R.style.Theme_AppCompat_Light_Dialog_Alert);
+                android.support.design.R.style.Theme_AppCompat_Light_Dialog_Alert);
         builder.setTitle(R.string.dialog_no_usb_device_title);
         builder.setMessage(R.string.dialog_no_usb_device_msg);
         builder.setPositiveButton(android.R.string.ok, null);

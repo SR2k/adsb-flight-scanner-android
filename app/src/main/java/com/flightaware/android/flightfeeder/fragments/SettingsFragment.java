@@ -101,7 +101,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements
 			webview.loadUrl("file:///android_asset/licenses.html");
 
 			AlertDialog.Builder alert = new AlertDialog.Builder(getActivity(),
-					R.style.Theme_AppCompat_Light_Dialog_Alert);
+					android.support.design.R.style.Theme_AppCompat_Light_Dialog_Alert);
 			alert.setView(webview);
 			alert.setPositiveButton(android.R.string.ok, null);
 			alert.show();

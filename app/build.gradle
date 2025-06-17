@@ -1,17 +1,30 @@
 apply plugin: 'com.android.application'
 
+repositories {
+    google()
+    mavenCentral()
+    jcenter()
+}
+
 android {
-    compileSdkVersion 24
-    buildToolsVersion "27.0.3"
+    namespace 'com.flightaware.android.flightfeeder'
+    compileSdkVersion 35
+    buildToolsVersion "35.0.0"
     useLibrary 'org.apache.http.legacy'
+
+    buildFeatures {
+        buildConfig true
+    }
 
     defaultConfig {
         applicationId "com.flightaware.android.flightfeeder"
-        minSdkVersion 14
-        targetSdkVersion 24
-        versionCode 29
-        versionName "2.0.29"
+        minSdkVersion 33
+        targetSdkVersion 35
+        versionCode 1
+        versionName "1.0.0"
+        // buildConfigField("boolean", "android.enableBuildConfig", enableBuildConfig)
     }
+
     buildTypes {
         release {
             minifyEnabled true
@@ -24,12 +37,12 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:24.1.1'
-    compile 'com.android.support:preference-v7:24.1.1'
-    compile 'com.android.support:preference-v14:24.1.1'
-    compile 'com.android.support:design:24.1.1'
-    compile 'me.zhanghai.android.materialprogressbar:library:1.1.4'
-    compile 'com.google.android.gms:play-services-location:9.4.0'
-    compile 'com.google.android.gms:play-services-maps:9.4.0'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:24.1.1'
+    implementation 'com.android.support:preference-v7:24.1.1'
+    implementation 'com.android.support:preference-v14:24.1.1'
+    implementation 'com.android.support:design:24.1.1'
+    implementation 'me.zhanghai.android.materialprogressbar:library:1.1.4'
+    implementation 'com.google.android.gms:play-services-location:15.0.0'
+    implementation 'com.google.android.gms:play-services-maps:15.0.0'
 }
